@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="testBoxDao" class="ru.otus.spring.dao.TestBoxDaoSimple">
+    </bean>
+
+    <bean id="testBox" class="ru.otus.spring.logic.TestBoxImpl">
+        <constructor-arg name="dao" ref="testBoxDao"/>
+    </bean>
+
+    <bean id="userIO" class="ru.otus.spring.io.UserIOImpl">
+        <constructor-arg name="box" ref="testBox"/>
+    </bean>
+
+</beans>
